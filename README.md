@@ -7,9 +7,9 @@ LibrarySql.sql dosyasından veritabanını yükleyebiirsiniz.
 Kayıt işlemi yapıldıktan sonra admin yetkisi sadece Members tablosunda bulunan MemberShipType kolonunu Admin olarak değiştirilerek kullanıcıya admin yetkis verilir.
 
 Aşağıdaki gibi 3 tip  Üyelik Türü vardır.
-1.Öğrenci
-2.Vatandaş
-3.Admin
+1.Öğrenci ( kullanıcı adı : berk58 şifre : 123456)
+2.Vatandaş ( kullanıcı adı : ahmet58 şifre : 123456)
+3.Admin ( kullanıcı adı : karahan58 şifre : 123456)
 
 Öğrencinin 4 adet Kitap alma hakkı vardır ve kitap iade tarihi aldığı günden 30 gün sonradır.
 Vatandaşın 2 adet Kitap alma hakkı vardır ve kitap iade tarihi aldığı günden 14 gün sonradır.
