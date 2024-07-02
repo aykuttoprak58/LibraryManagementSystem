@@ -25,6 +25,13 @@ Aşağıdaki gibi uyarı mesajları gelmektedir.
 
 Kullanıcı şifresini sıfırlamak istediğinde email adresine passwordresettoken gönderilir kullanıcı bu numarayaı ve yeni şifresini girerek şifresini başarıyla günceller.
 
+# Önemli Not
+Uyarı Maillerin kendi hesabınıza gelmesi için
+Gmail hesabınızın 2-Step Verification kısmından App passwords üretmelisiniz
+MyQuery Class'ının içindeki  SendEmail1 - SendEmail7 methodlarında bulunan aşağıdaki değişkenleri kendi gmail ve app pasword şifreniz ile doldurunuz 
+
+ string fromMail = "kendi gmail hesabınız";
+ string fromPassword = "app posword şifreniz";
 
 # Kullanılan Teknolojiler
 1.  .NET 8
