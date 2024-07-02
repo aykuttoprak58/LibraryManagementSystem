@@ -1,0 +1,106 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.BorrowedBooks>
+
+@{
+    ViewData["Title"] = "GetAllBarrowedBooksUI";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+<div class="w3-sidebar  bg-dark text-white w3-bar-block" style="width:21%">
+    <h3 class="w3-bar-item mysidebar">LIBRARY MANAGEMENT SYSTEM</h3>
+    <hr />
+    <a asp-controller="Auth" asp-action="SignOutUI" class="btn" style="background-color:red;color:white;margin-left:15px;">@TempData["username"] </a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetAllMembersUI" class="w3-bar-item w3-button menubuttons">MEMBERS</a>
+        <hr />
+    }
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetMemberStatusUI" class="w3-bar-item w3-button menubuttons">MEMBER STATUS</a>
+        <hr />
+    }
+    <a asp-controller="Book" asp-action="GetAllBooksUI" class="w3-bar-item w3-button menubuttons">BOOKS</a>
+    <hr />
+    <a asp-controller="BarrowingBook" asp-action="GetAllBarrowedBooksUI" class="w3-bar-item w3-button menubuttons">BARROWED BOOKS</a>
+    <hr />
+    <a asp-controller="ReturningBook" asp-action="GetAllReturnedBooksUI" class="w3-bar-item w3-button menubuttons">RETURNED BOOKS</a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Auth" asp-action="SettingsUI" class="w3-bar-item w3-button menubuttons">SETTINGS</a>
+    }
+    <footer style="margin-top:270px;font-weight:bolder;">
+        <h4 style="font-weight:bold;font-size:18px">© 2024 ALL RIGHTS RESERVED</h4>
+    </footer>
+</div>
+<div class="container-md mytable5">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="font-size:12px;">
+                <img class = "photo5";  src="~/images/Borrow.jpg" />
+                <br />
+                <br />
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.BarrowedBookId)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.BarrowedBookName)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.MemberFullName)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.IdentityNumber)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.BorrowedDate)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.ReturnDate)
+                </th>
+                <th class="myth">
+                    ReturningProcess
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="font-size:12px;">
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.BarrowedBookId)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.BarrowedBookName)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.MemberFullName)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.IdentityNumber)
+                    </td>
+                    <td class="mytd">
+                        @{
+                            var borrowedDate  = item.BorrowedDate != null ? item.BorrowedDate.ToShortDateString() : "No Date Available";
+                            var borrowedDate2 = item.BorrowedDate.ToShortDateString();
+                            var borrowedDate3 = item.ReturnDate.ToShortDateString();
+                        }
+                        @borrowedDate2
+                    
+                    </td>
+                    <td class="mytd">
+                        @borrowedDate3
+                    </td>
+                    <td class="mytd">
+                        <form asp-controller="ReturningBook" asp-action="CreateReturnedBookUI" method="post">
+                            <input type="hidden" name="bookId" value="@item.BarrowedBookId" />
+                            <button type="submit" class="btn" style="background-color:orange;color:white;width:165px;margin-right:15px">Kitap Geri İade Et</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

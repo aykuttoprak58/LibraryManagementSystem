@@ -1,0 +1,137 @@
+﻿@using LibraryManagementSystemApi.Models
+@model BookListViewModel
+
+@{
+    ViewData["Title"] = "GetAllBooksUI";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+
+<div class="w3-sidebar  bg-dark text-white w3-bar-block" style="width:21%">
+    <h3 class="w3-bar-item mysidebar">LIBRARY MANAGEMENT SYSTEM</h3>
+    <hr />
+    <a asp-controller="Auth" asp-action="SignOutUI" class="btn" style="background-color:red;color:white;margin-left:15px;">@TempData["username"] </a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetAllMembersUI" class="w3-bar-item w3-button menubuttons">MEMBERS</a>
+        <hr />
+    }
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetMemberStatusUI" class="w3-bar-item w3-button menubuttons">MEMBER STATUS</a>
+        <hr />
+    }
+    <a asp-controller="Book" asp-action="GetAllBooksUI" class="w3-bar-item w3-button menubuttons">BOOKS</a>
+    <hr />
+    <a asp-controller="BarrowingBook" asp-action="GetAllBarrowedBooksUI" class="w3-bar-item w3-button menubuttons">BARROWED BOOKS</a>
+    <hr />
+    <a asp-controller="ReturningBook" asp-action="GetAllReturnedBooksUI" class="w3-bar-item w3-button menubuttons">RETURNED BOOKS</a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Auth" asp-action="SettingsUI" class="w3-bar-item w3-button menubuttons">SETTINGS</a>
+    }
+    <footer style="margin-top:270px;font-weight:bolder;">
+        <h4 style="font-weight:bold;font-size:18px">© 2024 ALL RIGHTS RESERVED</h4>
+    </footer>
+</div>
+
+
+@if (Model != null && Model.Books != null && Model.Books.Count > 0)
+{
+    <div class="container-md mytable2">
+        <table class="table table-bordered" style="margin-left:-10px;width:1000px">
+            <thead>
+                <tr style="font-size:13px;">
+                    <img class="photo3" src="~/images/book.jpg" />
+                    <br />
+                    <br />
+                    <br />
+                    @using (Html.BeginForm("GetAllBooksUI", "Book", FormMethod.Get))
+                    {
+                        <div style="" class="input-group mb-3">
+                            <input type="text" style="margin-left:-10px;width:800px" name="searchTerm" placeholder="Search by Book Name or Author Name">
+                            <div class="input-group-append">
+                                <button class="btn btn-danger" style="width:150px" type="submit">Search</button>
+                            </div>
+                        </div>
+                    }
+                    <th class="myth">BookId</th>
+                    <th class="myth">BookName</th>
+                    <th class="myth">AuthorName</th>
+                    <th class="myth">CategoryName</th>
+                    <th class="myth">ReleaseDate</th>
+                    <th class="myth">Book Status</th>
+                    <th class="myth">Borrow Status</th>
+
+@*                     <th class ="myth"> @Html.DisplayNameFor(x => x.Books.First().BookId) </th>
+                    <th class="myth"> @Html.DisplayNameFor(x => x.Books.First().BookName) </th>
+                    <th class="myth"> @Html.DisplayNameFor(x => x.Books.First().AuthorName) </th>
+                    <th class="myth"> @Html.DisplayNameFor(x => x.Books.First().CategoryName) </th>
+                    <th class="myth"> @Html.DisplayNameFor(x => x.Books.First().ReleaseDate) </th>
+                    <th class="myth"> @Html.DisplayNameFor(x => x.Books.First().BookStatus) </th>
+                    <th class="myth"> Kitap Mevcutluk durumu</th> *@
+
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model.Books)
+                {
+                    <tr style="font-size:11px;">
+                        <td class="mytd">@book.BookId</td>
+                        <td class="mytd">@book.BookName</td>
+                        <td class="mytd">@book.AuthorName</td>
+                        <td class="mytd">@book.CategoryName</td>
+                        <td class="mytd">@book.ReleaseDate</td>
+                        <td class="mytd">@book.BookStatus</td>
+                        @if (@book.BookStatus == "Rafta")
+                        {
+                            <td class="mytd">
+                                <form asp-controller="BarrowingBook" asp-action="CreateBarrowedBookUI" method="post">
+                                    <input type="hidden" name="bookId" value="@book.BookId" />
+                                    <button type="submit" class="btn" style="background-color:green;color:white;width:190px;margin-right:15px">Kitap Ödünç Al</button>
+                                </form>
+                            </td>
+                        }
+                        else
+                        {
+                            <td class="mytd"> <a class="btn" style="background-color:red;color:white;margin-left:-15px;width:190px">Kitap Ödünç Alındı</a></td>
+                        }
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                @if (Model.CurrentPage > 1)
+                {
+                    <li class="page-item"><a class="page-link" href="?pageNumber=1&pageSize=@Model.PageSize">First</a></li>
+                    <li class="page-item"><a class="page-link" href="?pageNumber=@(Model.CurrentPage - 1)&pageSize=@Model.PageSize">Previous</a></li>
+                }
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")"><a class="page-link" href="?pageNumber=@i&pageSize=@Model.PageSize">@i</a></li>
+                }
+                @if (Model.CurrentPage < Model.TotalPages)
+                {
+                    <li class="page-item"><a class="page-link" href="?pageNumber=@(Model.CurrentPage + 1)&pageSize=@Model.PageSize">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?pageNumber=@Model.TotalPages&pageSize=@Model.PageSize">Last</a></li>
+                }
+            </ul>
+        </nav>
+
+
+    </div>
+
+}
+else
+{
+    <p>No books found.</p>
+}
+
+<span style="margin-left:670px;font-weight:bold;color:red;font-size:18px">@TempData["Message"] </span>

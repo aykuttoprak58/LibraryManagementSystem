@@ -1,0 +1,119 @@
+﻿@using LibraryManagementSystem.Dto
+@{
+    Layout = "/views/shared/_layout1.cshtml";
+}
+
+@model UserDto
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignInUI</title>
+</head>
+<body>
+</body>
+</html>
+
+<div class="row g-0 text-center ">
+    <div class="container district5">
+        <img class="photo2" src="~/images/CreateAccount.jpg" />
+        <br />
+        <form asp-controller="Auth" asp-action="SignUpUI" method="post">
+
+            <table class="table table-borderless mytable7" style="">
+                <tr>
+                    <td>
+                        <label style="font-weight:bold;margin-left:150px;">Ad</label>
+                        <br />
+                        <br />
+                        <input asp-for="Name" style="width:300px;margin-left:10px" class="form-control" placeholder="Adınızı Giriniz" />
+                    </td>
+                    <td>
+                        <label style="font-weight:bold;margin-left:150px;">SoyAd</label>
+                        <br />
+                        <br />
+                        <input asp-for="Surname" style="width:300px;margin-left:30px" class="form-control" placeholder="Soyadınızı giriniz" />
+                    </td>
+                </tr>
+                <tr>
+                    <td> <span style="margin-left:60px" class="errormessage" asp-validation-for="Name"></span></td>
+                    <td> <span style="margin-left:90px" class="errormessage" asp-validation-for="Surname"></span></td>
+                </tr>
+                <tr>
+                    <td> <label style="font-weight:bold;margin-left:150px;">Cinsiyet</label></td>
+                    <td><label style="font-weight:bold;margin-left:180px">Üyelik Türü</label></td>
+                </tr>
+                <tr>
+                    <td>
+                        <label style="font-weight:bold;margin-left:85px"> Erkek</label>
+                        <input asp-for="Gender" style="margin-left:5px" type="radio" value="MALE" name="gender" id="Male" />
+                        <label style="font-weight:bold;margin-left:85px"> Kadın</label>
+                        <input asp-for="Gender" style="margin-left:5px" type="radio" value="FEMALE" name="gender" id="Female" />
+                    </td>
+                    <td>
+                        <label style="font-weight:bold;margin-left:70px"> Öğrenci</label>
+                        <input asp-for="MemberShipType" style="margin-left:5px" type="radio" value="Student" name="MemberShipType" id="Student" />
+                        <label style="font-weight:bold;margin-left:70px"> Vatandaş</label>
+                        <input asp-for="MemberShipType" style="margin-left:5px" type="radio" value="Citizen" name="MemberShipType" id="Citizen" />
+                    </td>
+                </tr>
+                <tr>
+                    <td> <span style="margin-left:60px" class="errormessage" asp-validation-for="Gender"></span> </td>
+                    <td> <span style="margin-left:90px" class="errormessage" asp-validation-for="MemberShipType"></span> </td>
+                </tr>
+                <br>
+                <tr>
+                    <td><label style="font-weight:bold;margin-left:120px">Doğum Tarihi</label></td>
+                    <td> <label style="font-weight:bold;margin-left:190px;">TC Kimlik No</label></td>
+                </tr>
+                <tr>
+                    <td> <input asp-for="BirthDate" style="width:300px;margin-left:30px" type="date" class="form-control" /></td>
+                    <td> <input asp-for="IdentityNumber" style="width:300px;margin-left:90px" class="form-control" placeholder="TC Kimlik No Giriniz" /></td>
+                </tr>
+                <tr>
+                    <td>  <span></span> </td>
+  @*                   <td> <span style="margin-left:80px" class="errormessage" asp-validation-for="BirthDate"></span> </td> *@
+                    <td>  <span class="errormessage" asp-validation-for="IdentityNumber"></span> </td>
+                </tr>
+                <tr>
+                    <td><label style="font-weight:bold;margin-left:120px">Kullanıcı Adı</label></td>
+                    <td><label style="font-weight:bold;margin-left:190px">Email</label></td>
+                </tr>
+                <tr>
+                    <td>  <input asp-for="UserName" style="width:200px;margin-left:30px" class="form-control" placeholder="Kullanıcı Adınızı giriniz" /></td>
+                    <td>   <input asp-for="Email" style="width:300px;margin-left:85px" type="email" class="form-control" placeholder="Email adresinizi giriniz" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="margin-left:50px"  class="errormessage" asp-validation-for="UserName"></span>
+                        <span style="margin-left:100px" class="errormessage">@ViewData["Message1"]</span>
+                    </td>
+                    <td>
+                        <span class="errormessage" asp-validation-for="Email"></span>
+                        <span style="margin-left:-20px" class="errormessage">@ViewData["Message2"]</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="font-weight:bold;margin-left:120px">Şifre</label></td>
+                 
+                </tr>
+                <tr>
+                    <td>   <input asp-for="Password" style="width:300px;margin-left:40px" type="password" class="form-control" placeholder="Şifrenizi giriniz" /></td>
+                    <td><button asp-controller="Auth" asp-action="SignInUI" formmethod="get" class="btn btn-success" style="margin-left:10px">Geri Dön</button></td>
+                    <td> <button class="btn btn-danger" type="submit" style="margin-left:-300px">KAYDET</button></td>
+                </tr>
+                <tr>
+                    <td> <span class="errormessage" asp-validation-for="Password" style="margin-left:50px"></span></td>
+                </tr>
+                <tr>
+        
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿.errormessage {
+    color: red;
+    font-size: 15px;
+    margin-left: 140px;
+}
+
+.MyLabel2 {
+    font-weight: bold;
+    margin-left: 20px;
+    width: 10px;
+}
+
+.district5 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/images/grey.jpg');
+    height: 910px;
+}
+
+@media screen and (min-width: 1537px) {
+
+    .district5 {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('/images/grey.jpg');
+        height: 910px;
+    }
+}

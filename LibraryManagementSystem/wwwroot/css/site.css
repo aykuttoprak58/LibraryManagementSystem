@@ -1,0 +1,605 @@
+﻿.district1 {
+    height: 695px;
+}
+
+.district2 {
+    background-image: url('/images/library1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 695px;
+}
+
+.district3 {
+    background-image: url('/images/Library2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 695px;
+}
+
+.district4 {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('/images/library3.jpg');
+    height: 695px;
+}
+
+.signup {
+    width: 150px;
+    margin-left: 400px
+}
+
+
+.photo1 {
+    margin-top: 30px;
+    height: 150px;
+}
+
+.photo2 {
+    margin-top: 30px;
+    height: 100px;
+    width: 500px;
+    margin-left: 50px;
+}
+
+.photo3 {
+    height: 150px;
+    width: 300px;
+    margin-left: 380px;
+    margin-top: 20px;
+}
+
+.photo4 {
+    height: 200px;
+    width: 300px;
+    margin-left: 320px;
+    margin-top: 20px;
+}
+
+.photo5 {
+    height: 200px;
+    width: 300px;
+    margin-left: 350px;
+    margin-top: 20px;
+}
+
+.photo6 {
+    height: 200px;
+    width: 300px;
+    margin-left: 420px;
+    margin-top: 20px;
+}
+
+.text1 {
+    margin-top: 100px;
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
+
+
+.text2 {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.Enter {
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.area {
+    display: flex;
+    align-items: center;
+    margin-left: 110px;
+}
+
+.MyLabel {
+    font-weight: bold;
+    margin-right: 20px;
+    width: 10px;
+}
+
+.MyLabel2 {
+    font-weight: bold;
+    margin-right: 20px;
+    width: 10px;
+    margin-left: 15px;
+}
+
+.MyLabel3 {
+    font-weight: bold;
+    margin-right: 20px;
+    width: 10px;
+}
+
+
+.MyInput {
+    width: 700px;
+}
+
+.btn-danger {
+    margin-left: 50px;
+}
+
+.asp {
+    margin-left: 200px;
+}
+
+.mysidebar {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menubuttons {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.myth {
+    text-align: center;
+    align-content: center;
+}
+
+
+.mytd {
+    text-align: center;
+    color: black;
+    align-content: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+    /* Hide default HTML checkbox */
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+
+.mytable {
+    margin-left: 350px;
+    width:max-content;
+}
+
+.mytable2 {
+    margin-left: 470px;
+}
+
+.mytable3 {
+    margin-left: 330px;
+    width: max-content;
+}
+.mytable4 {
+    margin-left: 470px;
+    width: max-content;
+}
+
+.mytable5 {
+    margin-left: 470px;
+    width: max-content;
+}
+
+.mytable6 {
+    margin-left: 470px;
+    width: max-content;
+}
+
+.mytable7 {
+    width: 50px;
+    margin-left: 400px;
+}
+.style1 {
+    width: 400px;
+    margin-left: 10px
+}
+
+.style2 {
+    width: 400px;
+    margin-left: 70px
+}
+
+.style3 {
+    margin-left: 40px;
+    color: red;
+    font-weight: bold;
+}
+
+.style4 {
+    margin-left: -60px;
+    color: red;
+    font-weight: bold;
+}
+
+.style5 {
+}
+
+.style6 {
+}
+
+.style7 {
+}
+
+.style8 {
+}
+
+.style9 {
+}
+
+.style10 {
+}
+
+.style11 {
+}
+
+.style12 {
+}
+
+.style13 {
+}
+
+.style14 {
+}
+
+@media screen and (min-width: 1537px) {
+
+    .style1 {
+        width: 400px;
+        margin-left: 50px
+    }
+
+    .style2 {
+        width: 400px;
+        margin-left: 105px
+    }
+
+    .style3 {
+        margin-left: -80px;
+        color: red;
+        font-weight: bold;
+    }
+
+    .style4 {
+        margin-left: -140px;
+        color: red;
+        font-weight: bold;
+    }
+
+    .style5 {
+    }
+
+    .style6 {
+    }
+
+    .style7 {
+    }
+
+    .style8 {
+    }
+
+    .style9 {
+    }
+
+    .style10 {
+    }
+
+    .style11 {
+    }
+
+    .style12 {
+    }
+
+    .style13 {
+    }
+
+    .style14 {
+    }
+
+
+    .district1 {
+        height: 510px;
+    }
+
+    .district2 {
+        background-image: url('/images/library1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 910px;
+    }
+
+    .district3 {
+        background-image: url('/images/Library2.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 910px;
+    }
+
+    .district4 {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url('/images/library3.jpg');
+        height: 910px;
+    }
+
+
+
+
+    .signup {
+        width: 150px;
+        margin-left: 400px
+    }
+
+
+    .photo1 {
+        margin-top: 30px;
+        height: 300px;
+    }
+
+    .photo2 {
+        margin-top: 30px;
+        height: 130px;
+        width: 500px;
+        margin-left: 100px;
+    }
+
+    .photo3 {
+        height: 200px;
+        width: 300px;
+        margin-left: 300px;
+        margin-top: 20px;
+    }
+
+    .photo4 {
+        height: 200px;
+        width: 300px;
+        margin-left: 520px;
+        margin-top: 20px;
+    }
+
+    .photo5 {
+        height: 200px;
+        width: 300px;
+        margin-left: 340px;
+        margin-top: 20px;
+    }
+
+    .photo6 {
+        height: 200px;
+        width: 300px;
+        margin-left: 340px;
+        margin-top: 20px;
+    }
+
+    .text1 {
+        margin-top: 100px;
+        color: white;
+        font-size: 80px;
+        text-align: center;
+    }
+
+
+    .text2 {
+        font-weight: bold;
+        font-size: 50px;
+    }
+
+    .Enter {
+        text-align: center;
+        font-weight: bold;
+        font-size: 35px;
+    }
+
+    .area {
+        display: flex;
+        align-items: center;
+        margin-left: 110px;
+    }
+
+    .MyLabel {
+        font-weight: bold;
+        margin-right: 20px;
+        width: 10px;
+        margin-left: 10px;
+    }
+
+    .MyLabel2 {
+        font-weight: bold;
+        margin-right: 20px;
+        width: 10px;
+        margin-left: 65px;
+    }
+
+    .MyLabel3 {
+        font-weight: bold;
+        margin-right: 20px;
+        width: 10px;
+        margin-left: 90px;
+    }
+
+    .MyInput {
+        width: 700px;
+    }
+
+    .btn-danger {
+        margin-left: 50px;
+    }
+
+    .asp {
+        margin-left: 200px;
+    }
+
+    .mysidebar {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .menubuttons {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .myth {
+        text-align: center;
+        align-content: center;
+    }
+
+
+    .mytd {
+        text-align: center;
+        color: black;
+        align-content: center;
+    }
+
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+    
+    .slider.round:before 
+    {
+        border-radius: 50%;
+
+    }
+
+    .mytable 
+    {
+        margin-left: 470px;
+    }
+
+    .mytable2 
+    {
+        margin-left: 670px;
+    }
+
+    .mytable3 {
+        margin-left: 490px;
+        width: max-content;
+    }
+
+    .mytable4 {
+        margin-left: 750px;
+    }
+
+    .mytable5 {
+        margin-left: 670px;
+        width: max-content;
+    }
+
+    .mytable6 {
+        margin-left: 670px;
+        width: max-content;
+    }
+
+    .mytable7 {
+        width: 50px;
+        margin-left: 600px
+    }
+
+}

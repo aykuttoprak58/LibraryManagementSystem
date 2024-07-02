@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "GetMemberStatusUI";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+
+@using LibraryManagementSystem.Models
+@model IEnumerable<MemberStatus>
+
+<div class="w3-sidebar  bg-dark text-white w3-bar-block" style="width:21%">
+    <h3 class="w3-bar-item mysidebar">LIBRARY MANAGEMENT SYSTEM</h3>
+    <hr />
+    <a asp-controller="Auth" asp-action="SignOutUI" class="btn" style="background-color:red;color:white;margin-left:15px;">@TempData["username"] </a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetAllMembersUI" class="w3-bar-item w3-button menubuttons">MEMBERS</a>
+        <hr />
+    }
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetMemberStatusUI" class="w3-bar-item w3-button menubuttons">MEMBER STATUS</a>
+        <hr />
+    }
+    <a asp-controller="Book" asp-action="GetAllBooksUI" class="w3-bar-item w3-button menubuttons">BOOKS</a>
+    <hr />
+    <a asp-controller="BarrowingBook" asp-action="GetAllBarrowedBooksUI" class="w3-bar-item w3-button menubuttons">BARROWED BOOKS</a>
+    <hr />
+    <a asp-controller="ReturningBook" asp-action="GetAllReturnedBooksUI" class="w3-bar-item w3-button menubuttons">RETURNED BOOKS</a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Auth" asp-action="SettingsUI" class="w3-bar-item w3-button menubuttons">SETTINGS</a>
+    }
+    <footer style="margin-top:270px;font-weight:bolder;">
+        <h4 style="font-weight:bold;font-size:18px">© 2024 ALL RIGHTS RESERVED</h4>
+    </footer>
+</div>
+
+<div class="container-md mytable">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="font-size:12px;">
+                <img style="height:200px; width:300px; margin-left:520px;margin-top:20px;" src="~/images/Status.jpg" />
+                <br />
+                <br />
+                <th class="myth"> @Html.DisplayNameFor(x => x.MemberId)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.MemberFullName)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.IdentityNumber)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.BarrowedBookNumber)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.ReturnedBookNumber)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.PunishmentNumber)</th>
+                <th class="myth"> @Html.DisplayNameFor(x => x.PunishmentStatus)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr style="font-size:12px;">
+                    <td class="mytd">@book.MemberId</td>
+                    <td class="mytd">@book.MemberFullName</td>
+                    <td class="mytd">@book.IdentityNumber</td>
+                    <td class="mytd">@book.BarrowedBookNumber</td>
+                    <td class="mytd">@book.ReturnedBookNumber</td>
+                    <td class="mytd">@book.PunishmentNumber</td>
+                    <td class="mytd">@book.PunishmentStatus</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,182 @@
+﻿@{
+    ViewData["Title"] = "SettingsUI";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    bool messageEnabled1 = ViewData["MessageEnabled1"] as bool? ?? false;
+    bool messageEnabled2 = ViewData["MessageEnabled2"] as bool? ?? false;
+    bool messageEnabled3 = ViewData["MessageEnabled3"] as bool? ?? false;
+    bool messageEnabled4 = ViewData["MessageEnabled4"] as bool? ?? false;
+    bool messageEnabled5 = ViewData["MessageEnabled5"] as bool? ?? false;
+    bool messageEnabled6 = ViewData["MessageEnabled6"] as bool? ?? false;
+    bool messageEnabled7 = ViewData["MessageEnabled7"] as bool? ?? false;
+}
+
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+
+<div class="w3-sidebar  bg-dark text-white w3-bar-block" style="width:21%">
+    <h3 class="w3-bar-item mysidebar">LIBRARY MANAGEMENT SYSTEM</h3>
+    <hr />
+    <a asp-controller="Auth" asp-action="SignOutUI" class="btn" style="background-color:red;color:white;margin-left:15px;">@TempData["username"] </a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetAllMembersUI" class="w3-bar-item w3-button menubuttons">MEMBERS</a>
+        <hr />
+    }
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetMemberStatusUI" class="w3-bar-item w3-button menubuttons">MEMBER STATUS</a>
+        <hr />
+    }
+    <a asp-controller="Book" asp-action="GetAllBooksUI" class="w3-bar-item w3-button menubuttons">BOOKS</a>
+    <hr />
+    <a asp-controller="BarrowingBook" asp-action="GetAllBarrowedBooksUI" class="w3-bar-item w3-button menubuttons">BARROWED BOOKS</a>
+    <hr />
+    <a asp-controller="ReturningBook" asp-action="GetAllReturnedBooksUI" class="w3-bar-item w3-button menubuttons">RETURNED BOOKS</a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Auth" asp-action="SettingsUI" class="w3-bar-item w3-button menubuttons">SETTINGS</a>
+    }
+    <footer style="margin-top:270px;font-weight:bolder;">
+        <h4 style="font-weight:bold;font-size:18px">© 2024 ALL RIGHTS RESERVED</h4>
+    </footer>
+</div>
+
+<div class="container-md mytable">
+    
+
+    <table class="table table-borderless" style="width:500px;margin-left:400px;margin-top:60px; text-align:center;">
+        <thead>
+            <tr>
+              @*   <img style="height:50px; width:250px; margin-left:520px;margin-top:20px;" src="~/images/Setting.png" /> *@
+                <br />
+                <br />
+                <th>MAIN SETTING</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage7" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled7 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled7 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-borderless" style="width:500px;margin-left:400px;margin-top:60px; text-align:center;">
+       
+        <thead>
+            <tr>
+                <th>MAIL 1</th>
+                <th>MAIL 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage1" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled1 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled1 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage2" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled2 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled2 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>MAIL 3</th>
+                <th>MAIL 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage3" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled3 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled3 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage4" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled4 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled4 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <th>MAIL 5</th>
+                <th>MAIL 6</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage5" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled5 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled5 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+                <td>
+                    <form asp-controller="Auth" asp-action="ToggleMessage6" method="post">
+                        OFF<label class="switch">
+                            <input type="checkbox" id="toggleButton" name="enabled" value='@(messageEnabled6 ? "false" : "true")' onchange="this.form.submit()" @(messageEnabled6 ? "checked" : "")>
+                            <span class="slider round"></span>
+                        </label> ON
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@*     <script>
+        $(document).ready(function () {
+            $("#toggleButton").change(function () {
+                var isChecked = $(this).prop("checked");
+                $.ajax({
+                    url: "/MyController/ToggleAction",
+                    type: "POST",
+                    data: { isChecked: isChecked },
+                    success: function (response) {
+                    },
+                    error: function () {
+                    }
+                });
+            });
+        });
+    </script> *@
+

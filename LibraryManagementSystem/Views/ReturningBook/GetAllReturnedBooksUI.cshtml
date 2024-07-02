@@ -1,0 +1,103 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.ReturnedBooks>
+
+@{
+    ViewData["Title"] = "GetAllReturnedBooksUI";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+<div class="w3-sidebar  bg-dark text-white w3-bar-block" style="width:21%">
+    <h3 class="w3-bar-item mysidebar">LIBRARY MANAGEMENT SYSTEM</h3>
+    <hr />
+    <a asp-controller="Auth" asp-action="SignOutUI" class="btn" style="background-color:red;color:white;margin-left:15px;">@TempData["username"] </a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetAllMembersUI" class="w3-bar-item w3-button menubuttons">MEMBERS</a>
+        <hr />
+    }
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Member" asp-action="GetMemberStatusUI" class="w3-bar-item w3-button menubuttons">MEMBER STATUS</a>
+        <hr />
+    }
+    <a asp-controller="Book" asp-action="GetAllBooksUI" class="w3-bar-item w3-button menubuttons">BOOKS</a>
+    <hr />
+    <a asp-controller="BarrowingBook" asp-action="GetAllBarrowedBooksUI" class="w3-bar-item w3-button menubuttons">BARROWED BOOKS</a>
+    <hr />
+    <a asp-controller="ReturningBook" asp-action="GetAllReturnedBooksUI" class="w3-bar-item w3-button menubuttons">RETURNED BOOKS</a>
+    <hr />
+    @if (@TempData["role"].ToString() == "Admin")
+    {
+        <a asp-controller="Auth" asp-action="SettingsUI" class="w3-bar-item w3-button menubuttons">SETTINGS</a>
+    }
+    <footer style="margin-top:270px;font-weight:bolder;">
+        <h4 style="font-weight:bold;font-size:18px">© 2024 ALL RIGHTS RESERVED</h4>
+    </footer>
+</div>
+
+<div class="container-md mytable6">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="font-size:12px;">
+                <img class = "photo6" src="~/images/Return.png" />
+                <br />
+                <br />
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.ReturnedBookId)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.ReturnedBookName)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.MemberFullName)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.IdentityNumber)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.Deadline)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.ReturnDate)
+                </th>
+                <th class="myth">
+                    @Html.DisplayNameFor(model => model.PunishmentStatus)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="font-size:12px;">
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.ReturnedBookId)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.ReturnedBookName)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.MemberFullName)
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.IdentityNumber)
+                    </td>
+                    <td class="mytd">
+                        @{
+                            var borrowedDate = item.Deadline != null ? item.Deadline.ToShortDateString() : "No Date Available";
+                            var borrowedDate2 = item.Deadline.ToShortDateString();
+                            var borrowedDate3 = item.ReturnDate.ToShortDateString();
+                        }
+                        @borrowedDate2
+                        @*            @Html.DisplayFor(modelItem => item.Deadline) *@
+                    </td>
+                    <td class="mytd">
+                        @*               @Html.DisplayFor(modelItem => item.ReturnDate) *@
+                        @borrowedDate3
+                    </td>
+                    <td class="mytd">
+                        @Html.DisplayFor(modelItem => item.PunishmentStatus)
+                </tr>
+            }
+        </tbody>
+    </table>

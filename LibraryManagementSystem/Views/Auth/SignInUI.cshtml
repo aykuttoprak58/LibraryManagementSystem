@@ -1,0 +1,60 @@
+﻿@using LibraryManagementSystem.Dto
+@{
+    Layout = "/views/shared/_layout1.cshtml";
+}
+
+@model SignInDto
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="~/css/site2.css" rel="stylesheet" />
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignInUI</title>
+</head>
+<body>
+</body>
+</html>
+
+<div class="row g-0 text-center">
+    <div class="col-5 district1">
+        <img class="photo1" src="~/images/istanbul.jpeg" />
+        <h1 class="text2">İSTANBUL DEVLET KÜTÜPHANESİNE</h1>
+        <h1 class="text2">HOŞ GELDİNİZ</h1>
+        <form asp-controller="Auth" asp-action="SignInUI" method="post">
+            <p style="text-align:center">
+                Hesabınız Yok Mu?
+                <a href="/Auth/SignUpUI">Hemen Kayıt Olun</a>
+            <p class="Enter"> Giriş Yap </p>
+            <div class="mb-4 area">
+                <label asp-for="UserName" style="font-weight:bold" >Kullanıcı Adı</label>
+                <input asp-for="UserName" class="style1" placeholder="Kullanıcı Adınızı giriniz" />
+            </div>
+            <span asp-validation-for="UserName" class="style3"></span>
+            <br />
+            <br />
+            <div class="mb-4 area">
+                <label asp-for="Password" class="MyLabel">Şifre</label>
+                <input asp-for="Password"  type="password" class="style2" placeholder="Şifrenizi giriniz" />
+            </div>
+            <span asp-validation-for="Password" class="style4"></span>
+            <span style="margin-left:-90px" class="text-danger">@ViewData["Message3"]</span>
+            <br />
+            <br />
+            <div class="text-center pt-1 mb-5 pb-1">
+                <button class="btn btn-danger" type="submit" style="margin-right:20px">Giriş Yap</button>
+                <a asp-controller="Auth" asp-action="ForgotPasswordUI"> Şifremi Unuttum</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-7 district2">
+        <h1 class="text1">ISTANBUL STATE LIBRARY</h1>
+    </div>
+</div>
