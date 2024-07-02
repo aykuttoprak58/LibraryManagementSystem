@@ -2,6 +2,10 @@
 
 Kullanıcıların kütüphaneden kitap ödünç alma ve iade etme işlemlerinin takibini gerçekleştimek amacıyla geliştirilmiştir.
 
+LibrarySql.sql dosyasından veritabanını yükleyebiirsiniz.
+
+Kayıt işlemi yapıldıktan sonra admin yetkisi sadece Members tablosunda bulunan MemberShipType kolonunu Admin olarak değiştirilerek kullanıcıya admin yetkis verilir.
+
 Aşağıdaki gibi 3 tip  Üyelik Türü vardır.
 1.Öğrenci
 2.Vatandaş
