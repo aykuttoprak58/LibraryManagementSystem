@@ -18,7 +18,7 @@ Kullanıcı kitabı geç iade ettiğinde ceza yemektedir.2 defa üst üste ceza 
 
 Kullanıcının ceza sayısı 4 olduğunda hesabı kalıcı olarak iptal edilir.
 
-Aşağıdaki gibi uyarı mesajları gelmektedir.
+Aşağıdaki gibi uyarı mesajları gelmektedir bu uyarı mesajlarını admin ile giriş yaptığınızda settings kısmından kapatabilirsiniz.
 
 1. 7 GÜN ÖNCE KİTAP İADE HATIRLATMA MESAJI
 2. KİTAP İADESİ İÇİN SON GÜN İADE HATIRLATMA MESAJI
