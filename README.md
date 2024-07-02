@@ -27,8 +27,8 @@ Kullanıcı şifresini sıfırlamak istediğinde email adresine passwordresettok
 
 
 # Kullanılan Teknolojiler
-.NET 8
-Authorization ve Authentication
-HangFire
-BackGround Service
-Ado.Net
+1.  .NET 8
+2.  Authorization ve Authentication
+3.  HangFire
+4.  BackGround Service
+5.  Ado.Net
